@@ -1,4 +1,5 @@
 # Configuración de red estática Ubuntu Server
+# Dev: Miguel Hernandez - Hackhit
 # Archivo: /etc/netplan/01-network-config.yaml
 # IP Interna: 192.168.1.167
 # Gateway: 192.168.1.10
