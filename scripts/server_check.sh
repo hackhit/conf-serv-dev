@@ -6,7 +6,7 @@
 # Dev: Miguel Hernandez - Hackhit
 # ===============================================
 
-echo " VERIFICACION COMPLETA DEL SERVIDOR"
+echo "VERIFICACION COMPLETA DEL SERVIDOR"
 echo "====================================="
 
 # Colores para output
