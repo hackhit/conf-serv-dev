@@ -47,11 +47,11 @@ apt install -y \
 
 # 3. CONFIGURACION DE RED
 echo " Configurando red estatica..."
-# Detectar interfaz de red automáticamente
+# Detectar interfaz de red automaticamente
 INTERFACE=$(ip route | grep default | awk '{print $5}' | head -1)
 echo "Interfaz detectada: $INTERFACE"
 
-# Crear configuración de netplan
+# Crear configuracion de netplan
 cat > /etc/netplan/01-network-config.yaml << EOF
 network:
   version: 2
@@ -72,7 +72,7 @@ network:
       optional: true
 EOF
 
-# Aplicar configuración de red
+# Aplicar configuracion de red
 netplan apply
 
 # 4. CONFIGURACION DE FIREWALL
@@ -100,14 +100,14 @@ mkdir -p /var/www/deosvenezuela.com
 # Crear paginas de prueba profesionales
 echo " Creando paginas web de prueba..."
 
-# Paginas con diseño moderno
+# Paginas con disenio moderno
 cat > /var/www/tallerchevrolet.com/index.html << 'EOF'
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Taller Chevrolet - Servicio Técnico Especializado</title>
+    <title>Taller Chevrolet - Servicio Tecnico Especializado</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; display: flex; align-items: center; justify-content: center; }
@@ -128,8 +128,8 @@ cat > /var/www/tallerchevrolet.com/index.html << 'EOF'
         <div class="status"> Servidor funcionando correctamente</div>
         
         <div class="info">
-            <h3> Servicio Técnico Especializado</h3>
-            <p>Bienvenido al Taller Chevrolet. Contamos con mecánicos certificados y tecnología de punta para brindarle el mejor servicio técnico para su vehículo Chevrolet.</p>
+            <h3> Servicio Tecnico Especializado</h3>
+            <p>Bienvenido al Taller Chevrolet. Contamos con mecanicos certificados y tecnologia de punta para brindarle el mejor servicio tecnico para su vehiculo Chevrolet.</p>
         </div>
 
         <div class="grid">
@@ -156,7 +156,7 @@ cat > /var/www/tallerchevrolet.com/index.html << 'EOF'
         </div>
         
         <div class="footer">
-            <p><strong>🚀 Powered by Hackhit</strong> | Configuración profesional de servidor Ubuntu</p>
+            <p><strong>🚀 Powered by Hackhit</strong> | Configuracion profesional de servidor Ubuntu</p>
             <p>DNS • Apache • SSL • Seguridad</p>
         </div>
     </div>
@@ -168,7 +168,7 @@ EOF
 chown -R www-data:www-data /var/www/
 chmod -R 755 /var/www/
 
-# 6. CONFIGURACIÓN DE BIND9
+# 6. CONFIGURACION DE BIND9
 echo "🔍 Configurando DNS (BIND9)..."
 
 # Backup de configuracion original
@@ -223,8 +223,8 @@ systemctl enable fail2ban
 
 # 9. VERIFICACIONES FINALES
 echo " Realizando verificaciones finales..."
-named-checkconf 2>/dev/null || echo " Verificar configuración BIND9"
-apache2ctl configtest 2>/dev/null || echo " Verificar configuración Apache"
+named-checkconf 2>/dev/null || echo " Verificar configuracion BIND9"
+apache2ctl configtest 2>/dev/null || echo " Verificar configuracion Apache"
 
 echo ""
 echo " ==============================================="
@@ -246,7 +246,7 @@ echo " SERVICIOS ACTIVOS:"
 echo "• Apache2 (Puerto 80/443)"
 echo "• BIND9 (Puerto 53)"
 echo "• SSH (Puerto 22)"
-echo "• Fail2Ban (Protección)"
+echo "• Fail2Ban (Proteccion)"
 echo ""
 echo " PROXIMOS PASOS:"
 echo "1. Configurar DNS en tu proveedor de dominios"
