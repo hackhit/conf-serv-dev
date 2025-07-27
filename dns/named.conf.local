@@ -1,6 +1,7 @@
 //
 // Configuración de zonas locales BIND9
 // Archivo: /etc/bind/named.conf.local
+// Dev: Miguel Hernandez - Hackhit
 // Servidor DNS para: tallerchevrolet.com, repuestoschevy.com, deosvenezuela.com
 // IP Externa: 38.10.252.121
 //
