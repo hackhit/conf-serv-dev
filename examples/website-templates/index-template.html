@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{SITE_TITLE}} - {{SITE_DESCRIPTION}}</title>
+    <meta name="description" content="{{META_DESCRIPTION}}">
+    <meta name="keywords" content="{{META_KEYWORDS}}">
+    <meta name="author" content="{{AUTHOR}}">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{SITE_URL}}">
+    <meta property="og:title" content="{{SITE_TITLE}}">
+    <meta property="og:description" content="{{META_DESCRIPTION}}">
+    <meta property="og:image" content="{{SITE_URL}}/assets/og-image.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="{{SITE_URL}}">
+    <meta property="twitter:title" content="{{SITE_TITLE}}">
+    <meta property="twitter:description" content="{{META_DESCRIPTION}}">
+    <meta property="twitter:image" content="{{SITE_URL}}/assets/twitter-image.jpg">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: {{PRIMARY_GRADIENT}};
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1000px;
+            width: 90%;
+            background: rgba(255,255,255,0.95);
+            padding: 50px;
+            border-radius: 25px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+            backdrop-filter: blur(15px);
+            text-align: center;
+        }
+        
+        h1 {
+            color: {{PRIMARY_COLOR}};
+            font-size: 4em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            font-weight: 700;
+        }
+        
+        .status {
+            background: {{SUCCESS_GRADIENT}};
+            color: white;
+            padding: 25px;
+            border-radius: 20px;
+            margin: 40px 0;
+            font-size: 1.4em;
+            font-weight: bold;
+            box-shadow: 0 15px 30px rgba(40, 167, 69, 0.3);
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+        
+        .info {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 20px;
+            margin: 30px 0;
+            border-left: 8px solid {{PRIMARY_COLOR}};
+            text-align: left;
+        }
+        
+        .info h3 {
+            color: {{PRIMARY_COLOR}};
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+        
+        .info p {
+            line-height: 1.6;
+            font-size: 1.1em;
+            color: #666;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+        
+        .card {
+            background: {{CARD_GRADIENT}};
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+            display: block;
+        }
+        
+        .card strong {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-size: 1.1em;
+        }
+        
+        .footer {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 3px solid #e9ecef;
+            color: #6c757d;
+        }
+        
+        .footer p {
+            margin: 8px 0;
+        }
+        
+        .footer strong {
+            color: {{PRIMARY_COLOR}};
+        }
+        
+        .badges {
+            margin: 20px 0;
+        }
+        
+        .badge {
+            display: inline-block;
+            background: {{ACCENT_COLOR}};
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            margin: 5px;
+            font-size: 0.9em;
+            font-weight: 500;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px 20px;
+                width: 95%;
+            }
+            
+            h1 {
+                font-size: 2.5em;
+            }
+            
+            .grid {
+                grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>{{SITE_ICON}} {{SITE_TITLE}}</h1>
+        
+        <div class="status">
+            ✅ Servidor funcionando correctamente
+        </div>
+        
+        <div class="info">
+            <h3>{{INFO_TITLE}}</h3>
+            <p>{{INFO_DESCRIPTION}}</p>
+        </div>
+        
+        <div class="badges">
+            <span class="badge">{{BADGE_1}}</span>
+            <span class="badge">{{BADGE_2}}</span>
+            <span class="badge">{{BADGE_3}}</span>
+        </div>
+
+        <div class="grid">
+            <div class="card">
+                <span class="icon">🌐</span>
+                <strong>IP Externa</strong>
+                {{EXTERNAL_IP}}
+            </div>
+            <div class="card">
+                <span class="icon">🏠</span>
+                <strong>IP Interna</strong>
+                {{INTERNAL_IP}}
+            </div>
+            <div class="card">
+                <span class="icon">📅</span>
+                <strong>Configurado</strong>
+                {{CONFIG_DATE}}
+            </div>
+            <div class="card">
+                <span class="icon">🔒</span>
+                <strong>SSL</strong>
+                {{SSL_STATUS}}
+            </div>
+            <div class="card">
+                <span class="icon">⚡</span>
+                <strong>Performance</strong>
+                {{PERFORMANCE_STATUS}}
+            </div>
+            <div class="card">
+                <span class="icon">🛡️</span>
+                <strong>Seguridad</strong>
+                {{SECURITY_STATUS}}
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p><strong>🚀 Powered by conf-serv-dev</strong></p>
+            <p>Configuración profesional de servidor Ubuntu</p>
+            <p>{{TECH_STACK}}</p>
+            <p><small>Generated: {{GENERATION_TIME}}</small></p>
+        </div>
+    </div>
+</body>
+</html>

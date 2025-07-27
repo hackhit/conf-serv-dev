@@ -1,0 +1,108 @@
+# Logs
+*.log
+logs/
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage directory used by tools like istanbul
+coverage/
+*.lcov
+
+# nyc test coverage
+.nyc_output
+
+# Dependency directories
+node_modules/
+vendor/
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Output of 'npm pack'
+*.tgz
+
+# Yarn Integrity file
+.yarn-integrity
+
+# dotenv environment variables file
+.env
+.env.test
+.env.local
+.env.production
+
+# Backup files
+*.backup
+*.bak
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Local configuration files
+*.local
+
+# SSL certificates and keys
+*.pem
+*.key
+*.crt
+*.csr
+
+# Apache password files
+.htpasswd*
+
+# Temporary files
+/tmp/
+*.tmp
+
+# Archive files
+*.zip
+*.tar.gz
+*.rar
+
+# Database files
+*.sql
+*.db
+*.sqlite
+
+# Cache directories
+cache/
+.cache/
+
+# Build directories
+build/
+dist/
+
+# Test output
+test-results/
+test-output/
+
+# Documentation build
+docs/_build/
+
+# Local development
+.vagrant/
+.docker/
+
+# Custom ignore patterns
+# Add any project-specific patterns here
