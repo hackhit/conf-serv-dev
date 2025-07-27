@@ -1,4 +1,4 @@
-# 🚀 conf-serv-dev
+# 🚀 Configurador de Servidor
 
 <div align="center">
 
@@ -23,7 +23,7 @@
 
 ## 📋 Descripción del Proyecto
 
-**conf-serv-dev** es una solución completa y automatizada para configurar un servidor Ubuntu con capacidades de hosting profesional. Este proyecto incluye configuración de DNS propio, servidor web con múltiples dominios, certificados SSL automáticos y seguridad avanzada.
+**Configurador de Servidor** es una solución completa y automatizada para configurar un servidor Ubuntu con capacidades de hosting profesional. Este proyecto incluye configuración de DNS propio, servidor web con múltiples dominios, certificados SSL automáticos y seguridad avanzada. Es el resultado de años de practica y puesta en marcha de muchisimos servidores, aqui mi aporte, y si pierdes informacion en tu PC, aqui lo vas a encontrar cada vez que lo requieras.
 
 ### 🎯 **Casos de Uso**
 - Hosting de múltiples sitios web en un solo servidor
@@ -343,9 +343,9 @@ Este proyecto está licenciado bajo la **Licencia MIT** - ver el archivo [LICENS
 **HackHit** - *Desarrollador Full-Stack & DevOps Engineer*
 
 - 🌐 **GitHub**: [@hackhit](https://github.com/hackhit)
-- 📧 **Email**: [contacto@hackhit.dev](mailto:contacto@hackhit.dev)
-- 💼 **LinkedIn**: [hackhit-dev](https://linkedin.com/in/hackhit-dev)
-- 🐦 **Twitter**: [@hackhit_dev](https://twitter.com/hackhit_dev)
+- 📧 **Email**: [83knmujyb@mozmail.com](mailto:83knmujyb@mozmail.com)
+- 💼 **LinkedIn**: [hackhit-dev](https://linkedin.com/in/hackhit)
+- 🐦 **X**: [@hackhit](https://twitter.com/hackhit)
 
 ---
 
@@ -377,6 +377,6 @@ Si este proyecto te ha sido útil, considera:
 *Configuración profesional • Seguridad avanzada • Automatización completa*
 
 [![Built with Love](https://img.shields.io/badge/Built%20with-❤️-red.svg)](https://github.com/hackhit/conf-serv-dev)
-[![Made in Venezuela](https://img.shields.io/badge/Made%20in-🇻🇪%20Venezuela-yellow.svg)](https://venezuela.travel/)
+[![Made in Venezuela](https://img.shields.io/badge/Made%20in-🇻🇪%20Venezuela-yellow.svg)](https://hackhit.info/)
 
 </div>
