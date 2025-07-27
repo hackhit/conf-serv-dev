@@ -1,0 +1,50 @@
+//
+// Configuración de zonas locales BIND9
+// Archivo: /etc/bind/named.conf.local
+// Servidor DNS para: tallerchevrolet.com, repuestoschevy.com, deosvenezuela.com
+// IP Externa: 38.10.252.121
+//
+
+// Zona para tallerchevrolet.com
+zone "tallerchevrolet.com" {
+    type master;
+    file "/etc/bind/db.tallerchevrolet.com";
+    allow-transfer { any; };
+    allow-query { any; };
+    notify yes;
+};
+
+// Zona para repuestoschevy.com
+zone "repuestoschevy.com" {
+    type master;
+    file "/etc/bind/db.repuestoschevy.com";
+    allow-transfer { any; };
+    allow-query { any; };
+    notify yes;
+};
+
+// Zona para deosvenezuela.com
+zone "deosvenezuela.com" {
+    type master;
+    file "/etc/bind/db.deosvenezuela.com";
+    allow-transfer { any; };
+    allow-query { any; };
+    notify yes;
+};
+
+// Zona reversa para la red local 192.168.1.x
+zone "1.168.192.in-addr.arpa" {
+    type master;
+    file "/etc/bind/db.192";
+    allow-transfer { any; };
+    allow-query { any; };
+    notify yes;
+};
+
+// Configuración adicional para logging
+logging {
+    channel default_debug {
+        file "data/named.run";
+        severity dynamic;
+    };
+};

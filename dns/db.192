@@ -1,0 +1,30 @@
+;
+; Archivo de zona reversa para 192.168.1.x
+; Archivo: /etc/bind/db.192
+; IP Interna: 192.168.1.167
+; Gateway: 192.168.1.10
+;
+$TTL    604800
+@       IN      SOA     ns1.tallerchevrolet.com. admin.tallerchevrolet.com. (
+                         2024072601     ; Serial (YYYYMMDDNN)
+                         604800         ; Refresh (1 semana)
+                         86400          ; Retry (1 día)
+                         2419200        ; Expire (4 semanas)
+                         604800 )       ; Negative Cache TTL (1 semana)
+
+; Servidores de nombres
+@       IN      NS      ns1.tallerchevrolet.com.
+
+; Resolución reversa para la IP del servidor (192.168.1.167)
+167     IN      PTR     tallerchevrolet.com.
+167     IN      PTR     repuestoschevy.com.
+167     IN      PTR     deosvenezuela.com.
+167     IN      PTR     server.local.
+
+; Resolución reversa para otros equipos de la red (opcional)
+10      IN      PTR     gateway.local.
+1       IN      PTR     router.local.
+
+; Servidores de nombres
+167     IN      PTR     ns1.tallerchevrolet.com.
+167     IN      PTR     ns2.tallerchevrolet.com.
