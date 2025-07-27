@@ -12,7 +12,7 @@
 
 set -e  # Salir en caso de error
 
-echo " INICIANDO CONFIGURACIÓN COMPLETA DEL SERVIDOR..."
+echo " INICIANDO CONFIGURACION COMPLETA DEL SERVIDOR..."
 echo "============================================="
 
 # Verificar que se ejecute como root
