@@ -377,6 +377,6 @@ Si este proyecto te ha sido útil, considera:
 *Configuración profesional • Seguridad avanzada • Automatización completa*
 
 [![Built with Love](https://img.shields.io/badge/Built%20with-❤️-red.svg)](https://github.com/hackhit/conf-serv-dev)
-[![Made in Venezuela](https://img.shields.io/badge/Made%20in-🇻🇪%20Venezuela-yellow.svg)](https://hackhit.info/)
+[![Made in Venezuela](https://img.shields.io/badge/Made%20in-🇻🇪%20Venezuela-yellow.svg)](https://www.hackhit.info?utm_source=github&utm_medium=referral&utm_campaign=repositorio&utm_content=Hackhit)
 
 </div>
