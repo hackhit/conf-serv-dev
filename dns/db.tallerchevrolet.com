@@ -6,7 +6,7 @@
 ;
 $TTL    604800
 @       IN      SOA     tallerchevrolet.com. admin.tallerchevrolet.com. (
-                         2024072601     ; Serial (YYYYMMDDNN) - Incrementar al hacer cambios
+                         2025072601     ; Serial (YYYYMMDDNN) - Incrementar al hacer cambios
                          604800         ; Refresh (1 semana)
                          86400          ; Retry (1 día)
                          2419200        ; Expire (4 semanas)
