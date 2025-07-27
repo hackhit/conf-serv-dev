@@ -1,8 +1,9 @@
 #!/bin/bash
 
 # ===============================================
-# SCRIPT DE IMPLEMENTACIÓN COMPLETA DEL SERVIDOR
+# SCRIPT DE IMPLEMENTACION COMPLETA DEL SERVIDOR
 # Proyecto: conf-serv-dev
+# Dev: Miguel Hernandez - Hackhit
 # Servidor: Ubuntu Server
 # Dominios: tallerchevrolet.com, repuestoschevy.com, deosvenezuela.com
 # IP Externa: 38.10.252.121
@@ -11,21 +12,21 @@
 
 set -e  # Salir en caso de error
 
-echo "🚀 INICIANDO CONFIGURACIÓN COMPLETA DEL SERVIDOR..."
+echo " INICIANDO CONFIGURACIÓN COMPLETA DEL SERVIDOR..."
 echo "============================================="
 
 # Verificar que se ejecute como root
 if [[ $EUID -ne 0 ]]; then
-   echo "❌ Este script debe ejecutarse como root (sudo)"
+   echo " Este script debe ejecutarse como root (sudo)"
    exit 1
 fi
 
-# 1. ACTUALIZACIÓN DEL SISTEMA
-echo "📦 Actualizando sistema..."
+# 1. ACTUALIZACION DEL SISTEMA
+echo " Actualizando sistema..."
 apt update && apt upgrade -y
 
-# 2. INSTALACIÓN DE PAQUETES
-echo "📥 Instalando paquetes necesarios..."
+# 2. INSTALACION DE PAQUETES
+echo " Instalando paquetes necesarios..."
 apt install -y \
     apache2 \
     bind9 \
@@ -44,8 +45,8 @@ apt install -y \
     tree \
     net-tools
 
-# 3. CONFIGURACIÓN DE RED
-echo "🌐 Configurando red estática..."
+# 3. CONFIGURACION DE RED
+echo " Configurando red estatica..."
 # Detectar interfaz de red automáticamente
 INTERFACE=$(ip route | grep default | awk '{print $5}' | head -1)
 echo "Interfaz detectada: $INTERFACE"
@@ -56,7 +57,7 @@ network:
   version: 2
   renderer: networkd
   ethernets:
-    $INTERFACE:
+    eth0:
       addresses:
         - 192.168.1.167/24
       gateway4: 192.168.1.10
@@ -74,8 +75,8 @@ EOF
 # Aplicar configuración de red
 netplan apply
 
-# 4. CONFIGURACIÓN DE FIREWALL
-echo "🔥 Configurando firewall..."
+# 4. CONFIGURACION DE FIREWALL
+echo " Configurando firewall..."
 ufw --force reset
 ufw allow OpenSSH
 ufw allow 80/tcp        # HTTP
@@ -85,10 +86,10 @@ ufw allow 53/udp        # DNS
 ufw allow 22/tcp        # SSH
 ufw --force enable
 
-# 5. CONFIGURACIÓN DE APACHE
-echo "🌐 Configurando Apache..."
+# 5. CONFIGURACION DE APACHE
+echo " Configurando Apache..."
 
-# Habilitar módulos necesarios
+# Habilitar modulos necesarios
 a2enmod rewrite ssl headers expires deflate
 
 # Crear directorios para sitios web
@@ -96,10 +97,10 @@ mkdir -p /var/www/tallerchevrolet.com
 mkdir -p /var/www/repuestoschevy.com
 mkdir -p /var/www/deosvenezuela.com
 
-# Crear páginas de prueba profesionales
-echo "📄 Creando páginas web de prueba..."
+# Crear paginas de prueba profesionales
+echo " Creando paginas web de prueba..."
 
-# Páginas con diseño moderno
+# Paginas con diseño moderno
 cat > /var/www/tallerchevrolet.com/index.html << 'EOF'
 <!DOCTYPE html>
 <html lang="es">
@@ -123,11 +124,11 @@ cat > /var/www/tallerchevrolet.com/index.html << 'EOF'
 </head>
 <body>
     <div class="container">
-        <h1>🔧 Taller Chevrolet</h1>
-        <div class="status">✅ Servidor funcionando correctamente</div>
+        <h1> Taller Chevrolet</h1>
+        <div class="status"> Servidor funcionando correctamente</div>
         
         <div class="info">
-            <h3>🚗 Servicio Técnico Especializado</h3>
+            <h3> Servicio Técnico Especializado</h3>
             <p>Bienvenido al Taller Chevrolet. Contamos con mecánicos certificados y tecnología de punta para brindarle el mejor servicio técnico para su vehículo Chevrolet.</p>
         </div>
 
@@ -155,7 +156,7 @@ cat > /var/www/tallerchevrolet.com/index.html << 'EOF'
         </div>
         
         <div class="footer">
-            <p><strong>🚀 Powered by conf-serv-dev</strong> | Configuración profesional de servidor Ubuntu</p>
+            <p><strong>🚀 Powered by Hackhit</strong> | Configuración profesional de servidor Ubuntu</p>
             <p>DNS • Apache • SSL • Seguridad</p>
         </div>
     </div>
@@ -170,7 +171,7 @@ chmod -R 755 /var/www/
 # 6. CONFIGURACIÓN DE BIND9
 echo "🔍 Configurando DNS (BIND9)..."
 
-# Backup de configuración original
+# Backup de configuracion original
 cp /etc/bind/named.conf.local /etc/bind/named.conf.local.backup
 
 # 7. CONFIGURAR FAIL2BAN
@@ -211,7 +212,7 @@ maxretry = 2
 EOF
 
 # 8. REINICIAR Y HABILITAR SERVICIOS
-echo "🔄 Reiniciando servicios..."
+echo " Reiniciando servicios..."
 systemctl restart bind9
 systemctl restart apache2
 systemctl restart fail2ban
@@ -221,37 +222,37 @@ systemctl enable apache2
 systemctl enable fail2ban
 
 # 9. VERIFICACIONES FINALES
-echo "✅ Realizando verificaciones finales..."
-named-checkconf 2>/dev/null || echo "⚠️ Verificar configuración BIND9"
-apache2ctl configtest 2>/dev/null || echo "⚠️ Verificar configuración Apache"
+echo " Realizando verificaciones finales..."
+named-checkconf 2>/dev/null || echo " Verificar configuración BIND9"
+apache2ctl configtest 2>/dev/null || echo " Verificar configuración Apache"
 
 echo ""
-echo "🎉 ==============================================="
-echo "     CONFIGURACIÓN COMPLETADA EXITOSAMENTE"
+echo " ==============================================="
+echo "     CONFIGURACION COMPLETADA EXITOSAMENTE"
 echo "==============================================="
 echo ""
-echo "📋 RESUMEN DE CONFIGURACIÓN:"
+echo " RESUMEN DE CONFIGURACION:"
 echo "• IP Interna: 192.168.1.167"
 echo "• IP Externa: 38.10.252.121"
 echo "• Gateway: 192.168.1.10"
 echo "• DNS: Cloudflare (1.1.1.1, 1.0.0.1)"
 echo ""
-echo "🌐 DOMINIOS CONFIGURADOS:"
+echo " DOMINIOS CONFIGURADOS:"
 echo "• http://tallerchevrolet.com"
 echo "• http://repuestoschevy.com"
 echo "• http://deosvenezuela.com"
 echo ""
-echo "🔧 SERVICIOS ACTIVOS:"
+echo " SERVICIOS ACTIVOS:"
 echo "• Apache2 (Puerto 80/443)"
 echo "• BIND9 (Puerto 53)"
 echo "• SSH (Puerto 22)"
 echo "• Fail2Ban (Protección)"
 echo ""
-echo "📝 PRÓXIMOS PASOS:"
+echo " PROXIMOS PASOS:"
 echo "1. Configurar DNS en tu proveedor de dominios"
 echo "2. Apuntar registros A a: 38.10.252.121"
 echo "3. Configurar SSL: ./scripts/ssl_setup.sh"
 echo "4. Verificar funcionamiento: ./scripts/server_check.sh"
 echo ""
-echo "✅ ¡Servidor listo para producción!"
-echo "🌍 Accede desde internet: http://38.10.252.121"
+echo " ¡Servidor listo para produccion!"
+echo " Accede desde internet: http://38.10.252.121"
